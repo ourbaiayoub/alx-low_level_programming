@@ -1,20 +1,30 @@
 #include "main.h"
-#include <stddef.h>
-
 /**
- * _strchr - Entry point
- * @s: input
- * @c: input
- * Return: Always 0 (Success)
+ * _strncat - concatenate two strings
+ * using at most n bytes from src
+ * @dest: input value
+ * @src: input value
+ * @n: input value
+ *
+ * Return: dest
  */
-char *_strchr(char *s, char c)
+char *_strncat(char *dest, char *src, int n)
 {
-	int i = 0;
+	int i;
+	int j;
 
-	for (; s[i] >= '\0'; i++)
+	i = 0;
+	while (dest[i] != '\0')
 	{
-		if (s[i] == c)
-			return (&s[i]);
+		i++;
 	}
-	return (0);
+	j = 0;
+	while (j < n && src[j] != '\0')
+	{
+	dest[i] = src[j];
+	i++;
+	j++;
+	}
+	dest[i] = '\0';
+	return (dest);
 }
